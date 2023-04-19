@@ -1,7 +1,5 @@
 import {
   Controller,
-  Get,
-  Param,
   Post,
   Req,
   UploadedFile,
@@ -36,9 +34,6 @@ export class FilesController {
     @UploadedFile() file: Express.Multer.File,
     @Req() request: Request,
   ) {
-    console.log(file);
-    console.log(request.ip);
-
     const fileId = this.jwtService.sign({
       filePath: file.path,
       ipAddress: request.ip,
